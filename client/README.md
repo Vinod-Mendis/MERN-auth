@@ -53,3 +53,5 @@ Steps :
         - hash the password using bcryptjs
         - create a new user model
         - save it in the mongoDB
+
+13. Create middleware and a function to handle errors

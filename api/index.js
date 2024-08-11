@@ -1,7 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose'; 
 import dotenv from "dotenv"; // using dotenv package becuase we to use .env file in the backend
-import { error, log } from 'console';
 import userRoutes from './routes/user.route.js' // import user route
 import authRoutes from './routes/auth.route.js'
 
@@ -36,3 +35,17 @@ app.listen(3000, () => {
 
 app.use("/api/user", userRoutes); // using the userRoutes
 app.use("/api/auth", authRoutes); // using thez authRoutes
+
+// creation of middleware to error handles
+//err = error happens
+// next = go to next middleware
+app.use(( err, req, res, next ) => {
+  const statusCode = err.statusCode || 500;
+  const errorMessage = err.message || "Internal Sever Error."
+
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    errorMessage,
+  })
+})
