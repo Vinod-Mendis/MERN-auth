@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose'; 
-import dotenv from "dotenv"; // using dotenv package becuase we cannot use .env file in the backend
+import dotenv from "dotenv"; // using dotenv package becuase we to use .env file in the backend
 import { error, log } from 'console';
+import userRoutes from './routes/user.route.js' // import user route
 
 dotenv.config(); // initialize dotenv
 
@@ -15,7 +16,7 @@ mongoose.connect(process.env.MONGODB_URI).then(() => { // if mongodb is connecte
   
 });
 
-const app = express(); // creates a instance of Express; use to define routes and handle incoming requests
+const app = express(); //? creates a instance of Express; use to define routes and handle incoming requests
 
 // app.listen -> starts the server
 // 1st param -> listen to specific port (3000)
@@ -23,3 +24,12 @@ const app = express(); // creates a instance of Express; use to define routes an
 app.listen(3000, () => {
   console.log('Server is listening on port 3000');
 })
+
+//! test api route
+// app.get('/',( req, res ) => {
+//   res.json({
+//     message: 'API is working!',
+//   })
+// })
+
+app.use("/api/user", userRoutes); // using the userRoutes
