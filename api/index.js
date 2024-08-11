@@ -5,6 +5,8 @@ import { error, log } from 'console';
 
 dotenv.config(); // initialize dotenv
 
+// connect Database :
+//------------------------------------------------------
 mongoose.connect(process.env.MONGODB_URI).then(() => { // if mongodb is connected -
   console.log("MongoDB Connected Succesfully.");       // - then conole log the message
 }).catch((error) => {                        // if there is an error, catch the error and -
