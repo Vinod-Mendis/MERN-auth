@@ -55,3 +55,8 @@ Steps :
         - save it in the mongoDB
 
 13. Create middleware and a function to handle errors
+    - create a middleware to handle errors in index.js file
+    - create a utils folder in the api folder
+    - create error.js file and create a custom error handler
+
+14. Complete SignUp page UI
