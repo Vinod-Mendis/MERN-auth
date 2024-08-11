@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from "dotenv"; // using dotenv package becuase we to use .env file in the backend
 import { error, log } from 'console';
 import userRoutes from './routes/user.route.js' // import user route
+import authRoutes from './routes/auth.route.js'
 
 dotenv.config(); // initialize dotenv
 
@@ -16,7 +17,8 @@ mongoose.connect(process.env.MONGODB_URI).then(() => { // if mongodb is connecte
   
 });
 
-const app = express(); //? creates a instance of Express; use to define routes and handle incoming requests
+const app = express(); // creates a instance of Express; use to define routes and handle incoming requests
+app.use(express.json()); // allow to send JSON input to backend
 
 // app.listen -> starts the server
 // 1st param -> listen to specific port (3000)
@@ -33,3 +35,4 @@ app.listen(3000, () => {
 // })
 
 app.use("/api/user", userRoutes); // using the userRoutes
+app.use("/api/auth", authRoutes); // using thez authRoutes
