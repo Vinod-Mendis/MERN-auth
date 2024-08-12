@@ -63,10 +63,20 @@ MERN-auth creation Steps :
 14. Complete SignUp page UI
     - Create a form 
 
-15. Complete SignUp page functionility
+15. Complete SignUp page functionility : 
     - Create a onChange handler to set data in a state in a form of object
     - Use it in each input inside the form
+    - create a proxy to forward the port when the uri reaches api/
     - create a onSubmit handler
         - use method post
         - and for content-ype in headers, user application/json
-    - create a proxy to forward the port when the uri reaches api/
+        - stringify the formdata into object type
+        - show error using state
+
+16. Create Sign In API route
+    - get emai and password from the req.body (client)
+    - find the user by email (validate the user)
+    - find whether the password is valid
+    - seperate the password from the object
+    - create web token using jsonwebtoken (select the ._id of the user)
+    - put that token inside a cookie of the user
