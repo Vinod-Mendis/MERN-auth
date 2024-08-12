@@ -8,7 +8,8 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-Steps :
+MERN-auth creation Steps :
+-------------------------
 
 1. Install React with JavaScript
 2. Install Tailwind CSS
@@ -60,3 +61,12 @@ Steps :
     - create error.js file and create a custom error handler
 
 14. Complete SignUp page UI
+    - Create a form 
+
+15. Complete SignUp page functionility
+    - Create a onChange handler to set data in a state in a form of object
+    - Use it in each input inside the form
+    - create a onSubmit handler
+        - use method post
+        - and for content-ype in headers, user application/json
+    - create a proxy to forward the port when the uri reaches api/
