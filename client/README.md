@@ -79,4 +79,6 @@ MERN-auth creation Steps :
     - find whether the password is valid
     - seperate the password from the object
     - create web token using jsonwebtoken (select the ._id of the user)
-    - put that token inside a cookie of the user
+    - put that token inside a cookie of the user and set expiry date
+
+17. Complete the Sign In page functionality
