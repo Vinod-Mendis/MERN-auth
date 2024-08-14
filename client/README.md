@@ -102,3 +102,7 @@ MERN-auth creation Steps :
     - import the reducer to signIn page
     - use useDispatch to distpach the action to reducer actions
     - read data using useSelector to read state from the store
+
+19. Add Redux persist
+    - install redux persist in the client using: npm i redux-persist
+    - 
