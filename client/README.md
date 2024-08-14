@@ -82,3 +82,23 @@ MERN-auth creation Steps :
     - put that token inside a cookie of the user and set expiry date
 
 17. Complete the Sign In page functionality
+    - copy and paste the signup function
+    - change the relevant changes such as api route, button name etc.
+
+18. Redux toolkit
+    - install redux toolikt using: npm i @reduxjs/toolkit react-redux
+    - create a folder named redux in the src of client and create a store.js file inside it
+    - import redux
+    - create a redux store
+    - wrap main.jsx with Redux Provider and pass the store
+    - create folder name user inside the redux folder and create a userSlice.js file in it
+    - import CreateSlice from redux
+    - Define a initial state
+    - create a slice
+        - give a label
+        - start with earlier defined initial state
+        - create reducer
+        - export the reducer
+    - import the reducer to signIn page
+    - use useDispatch to distpach the action to reducer actions
+    - read data using useSelector to read state from the store

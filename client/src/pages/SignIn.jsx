@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  signInStart,
+  signInSuccess,
+  signInFailure,
+} from "../redux/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+// useDispatch is used to dispatch/send an action when something happens
 
 export default function SignIn() {
   const [formData, setFormData] = useState();
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const { loading, error } = useSelector((state) => state.user); // allows to read data/extract from redux store
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value }); // uses spread operator to keep the previous data intact and add other data to it after each change.
   };
@@ -13,8 +20,7 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // prevents the default behaviour; prevent reloading after submitting
     try {
-      setError(false);
-      setLoading(true);
+      dispatch(signInStart());
       const res = await fetch("/api/auth/signin", {
         // send a request to the server
         method: "POST", // tells to send the data (POST)
@@ -24,15 +30,15 @@ export default function SignIn() {
         },
         body: JSON.stringify(formData), // make data in the form of object that can be sent to the server
       });
-      const data = await res.json();    
-      setLoading(false);
-      if(data.success === false) {
-        setError(true);
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signInFailure(data.errorMessage));
         return;
       }
+      dispatch(signInSuccess(data));
+      navigate("/");
     } catch (error) {
-      setLoading(false);
-      setError(true);
+      dispatch(signInFailure(data.errorMessage));
     }
   };
 
@@ -54,7 +60,10 @@ export default function SignIn() {
           className="bg-slate-100 p-3 rounded-lg outline-none"
           onChange={handleChange}
         />
-        <button disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
+        <button
+          disabled={loading}
+          className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+        >
           {loading ? "Loading..." : "Sign In"}
         </button>
       </form>
@@ -64,7 +73,9 @@ export default function SignIn() {
           <span className="text-blue-500">Sign up</span>
         </Link>
       </div>
-      <p className=" text-red-500">{error && "Something went wrong!"}</p>
+      <p className=" text-red-500">
+        {error ? error || "Something went wrong!" : ""}
+      </p>
     </div>
   );
 }

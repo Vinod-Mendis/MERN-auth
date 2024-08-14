@@ -2,9 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import { store } from './redux/store.js'
+import {Provider} from 'react-redux'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <Provider store={store}> 
+  {/* Provider component makes Redux store available for the entire application, any component inside the Provider can access the store. */}
     <App />
-  </StrictMode>,
+  </Provider>,
 )
