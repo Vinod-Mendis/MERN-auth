@@ -135,3 +135,9 @@ MERN-auth creation Steps :
     - then create a new user using the data from request at google at sign in
     - save te user
     - then sign the user in
+
+21. Update the Header component and make the profile page private
+    - update the header to show the profile image if there is a currentUser logged in using useSelector of redux
+    - Create a PrivateRoute.jsx Component to make the profile private
+    - init, if the currentUser is available, Outlet profile else navigate to signin
+    - wrap the profile route in App.jsx with a Route and give the element attribute PrivateRoute component
