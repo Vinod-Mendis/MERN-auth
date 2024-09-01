@@ -9,9 +9,9 @@ Currently, two official plugins are available:
 
 
 MERN-auth creation Steps :
--------------------------
+-----------------------------------------------------
 
-1. Install React with JavaScript
+1. Install React with JavaScript using vite
 2. Install Tailwind CSS
 
 3. Add Routes and Create Pages :
@@ -105,4 +105,33 @@ MERN-auth creation Steps :
 
 19. Add Redux persist
     - install redux persist in the client using: npm i redux-persist
-    - 
+    - create a rootReducer by combining all reducers
+    - create a persitConfig object to store data in the local storage of the browser
+    - create a persistReducer by passing both persistConfig and rootReducer
+    - then use it as main reducer in the store
+    - create and export the store as a perisitor Object
+    - wrap the App component in main.jsx file with PersistGate with passing the persistor object
+
+20. Create and Add OAuth Component
+    - create two a button component with handleGoogleClick for google signin
+    - creating a provide using new GoogleAuthProvider in handleGoogleClick function
+    - create a firebase project in firbase.google.com
+    - install firebase
+    - copy the code in firbase, create firebase.js file in src, and then past it export it
+    - create an .env file in the client and save the FIREBASE api key init
+    - use it in the firebase.js for api key as import.meta.env.[api key name]
+    - Create a google authtentication in firebase
+
+    - initialize a auth using getAuth and use app from firebase.js to request
+    - get the result from the google using signInWithPopup in the handleGoogleClick function
+    - createa a post method in the frontend to post the name, email, aand photo
+    - Then dispatch data to Redux
+    
+    - Create a new route in the api/routes/auth.route.js
+    - create a sign in/up function with the name "google" insdie the auth.controller.js
+    - find the user using email
+    - if the user is available, sign in the user
+    - if not, generate a new temporary password, hash it
+    - then create a new user using the data from request at google at sign in
+    - save te user
+    - then sign the user in
