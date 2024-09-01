@@ -151,4 +151,32 @@ MERN-auth creation Steps :
     - outside the form, create delete account and sign out buttons
 
 23. Upload Image Functionality :
-    - 
+    - create input of type File accepting only image and make it hidden
+    - reference it using a useRef
+    - use a callback function in the onclick to click on that ref(input) when clicked on the profile picture
+    - create state to store the image
+    - create a onchange, take the event and set the 0 index image of files (e.target.files[0])
+    -create a useEffect to upload the image if an image is available
+    - call handleFileUpload function inside the useEffect
+    - create a asynchronous handleFileUpload function which take the image as the parameter
+
+    - Create the first function to show upload progress
+
+        - create a storage using getStorage from firabase and pass the firbase app as the parameter
+        - create a filname by combining time and file name
+        - create a storageRef usig ref from firebase and pass that storage and filename as paramters
+        - create a uploadTask using uploadBytesResumable from firebase and pass that storageRef and the image(state) as parameters
+        - track the progress of the file upload
+            - setup a listner using uploadTask().on("state_changed",...)
+            - uploadTask is the ongoing upload process
+            - create a (snapshot) => function which contains information about upload`s current state
+            - progress = transfered bytes / total bytes * 100 -> to get the progress pecentage then round it and set it to a state
+
+    - Create the second function to show if there is any error when uploading
+
+        - if there is an error, set an state to setError to true
+    
+    - Create the third function to call when upload is successful
+
+        - Once the upload is complete, this retrieves the download URL of the uploaded file
+        - Update the form data (which likely includes other fields like name, email, etc.) to include the URL of the uploaded profile picture. This allows the uploaded image to be saved and used, for example, as a user's profile picture.
