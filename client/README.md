@@ -55,12 +55,12 @@ MERN-auth creation Steps :
         - create a new user model
         - save it in the mongoDB
 
-13. Create middleware and a function to handle errors
+13. Create middleware and a function to handle errors :
     - create a middleware to handle errors in index.js file
     - create a utils folder in the api folder
     - create error.js file and create a custom error handler
 
-14. Complete SignUp page UI
+14. Complete SignUp page UI :
     - Create a form 
 
 15. Complete SignUp page functionility : 
@@ -73,7 +73,7 @@ MERN-auth creation Steps :
         - stringify the formdata into object type
         - show error using state
 
-16. Create Sign In API route
+16. Create Sign In API route :
     - get emai and password from the req.body (client)
     - find the user by email (validate the user)
     - find whether the password is valid
@@ -81,11 +81,11 @@ MERN-auth creation Steps :
     - create web token using jsonwebtoken (select the ._id of the user)
     - put that token inside a cookie of the user and set expiry date
 
-17. Complete the Sign In page functionality
+17. Complete the Sign In page functionality :
     - copy and paste the signup function
     - change the relevant changes such as api route, button name etc.
 
-18. Redux toolkit
+18. Redux toolkit :
     - install redux toolikt using: npm i @reduxjs/toolkit react-redux
     - create a folder named redux in the src of client and create a store.js file inside it
     - import redux
@@ -103,7 +103,7 @@ MERN-auth creation Steps :
     - use useDispatch to distpach the action to reducer actions
     - read data using useSelector to read state from the store
 
-19. Add Redux persist
+19. Add Redux persist :
     - install redux persist in the client using: npm i redux-persist
     - create a rootReducer by combining all reducers
     - create a persitConfig object to store data in the local storage of the browser
@@ -112,7 +112,7 @@ MERN-auth creation Steps :
     - create and export the store as a perisitor Object
     - wrap the App component in main.jsx file with PersistGate with passing the persistor object
 
-20. Create and Add OAuth Component
+20. Create and Add OAuth Component :
     - create two a button component with handleGoogleClick for google signin
     - creating a provide using new GoogleAuthProvider in handleGoogleClick function
     - create a firebase project in firbase.google.com
@@ -136,16 +136,19 @@ MERN-auth creation Steps :
     - save te user
     - then sign the user in
 
-21. Update the Header component and make the profile page private
+21. Update the Header component and make the profile page private :
     - update the header to show the profile image if there is a currentUser logged in using useSelector of redux
     - Create a PrivateRoute.jsx Component to make the profile private
     - init, if the currentUser is available, Outlet profile else navigate to signin
     - wrap the profile route in App.jsx with a Route and give the element attribute PrivateRoute component
 
-22. Complete Profile Page UI
+22. Complete Profile Page UI :
     - create profile image
     - create a form
     - inside the form, create 3 inputes as username, email and password.
     - set their default values from data of currentUser
     - create a update button
     - outside the form, create delete account and sign out buttons
+
+23. Upload Image Functionality :
+    - 
