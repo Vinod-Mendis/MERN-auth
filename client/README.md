@@ -141,3 +141,11 @@ MERN-auth creation Steps :
     - Create a PrivateRoute.jsx Component to make the profile private
     - init, if the currentUser is available, Outlet profile else navigate to signin
     - wrap the profile route in App.jsx with a Route and give the element attribute PrivateRoute component
+
+22. Complete Profile Page UI
+    - create profile image
+    - create a form
+    - inside the form, create 3 inputes as username, email and password.
+    - set their default values from data of currentUser
+    - create a update button
+    - outside the form, create delete account and sign out buttons
