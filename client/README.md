@@ -216,7 +216,6 @@ Currently, two official plugins are available:
     - the use router in user.route.js file to go to /update/:id then verify the token and call the updateUser function
 
 25. Complete Update user functionality :
-
     - create and export reducers to for updateUserStart,success, and failure in the redux userSlice
     - in the profile page:
       - createa a onchange handler to submit form data by creating a copy of formdata when any input element is triggered. then set the form data to a state
@@ -226,9 +225,14 @@ Currently, two official plugins are available:
       - show a message if succesfully updated
       - show a message if error happens
 
-26. Add Delete User functionality
+26. Add Delete User functionality :
     - create a new delete route in user.route.js
     - create a delete user function in the user.controller.js
     - create an asynchronous handleDelete function in the profile page (no headers or body)
 
-27. 
+27. Add Sign out user functionality :
+    - create a get router in the auth.route.js
+    - creata an asynchronous signout method in auth.controller.js taking req, res and only paramters
+    - then clear the cookie
+    - add an onClick event listner to the signout button
+    - create and export a signout reducer for sign out in the redux userSlice
