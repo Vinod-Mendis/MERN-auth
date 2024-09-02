@@ -25,7 +25,7 @@ mongoose
 const __dirname = path.resolve(); // find the dynamic directory name
 const app = express(); // creates a instance of Express; use to define routes and handle incoming requests
 app.use(express.static(path.join(__dirname, "client/dist"))); // define the static folder
-app.length("*", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "dist", "index.html")); // whatever the directory name is in the server, got to client folder -> dist folder -> then send index.html to the client
 });
 app.use(express.json()); // allow to send JSON input to backend
