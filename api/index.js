@@ -4,6 +4,7 @@ import dotenv from "dotenv"; // using dotenv package becuase we to use .env file
 import userRoutes from "./routes/user.route.js"; // import user route
 import authRoutes from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
+import path from "path";
 
 dotenv.config(); // initialize dotenv
 
@@ -21,9 +22,14 @@ mongoose
     console.log(error);
   });
 
+const __dirname = path.resolve(); // find the dynamic directory name
 const app = express(); // creates a instance of Express; use to define routes and handle incoming requests
+app.use(express.static(path.join(__dirname, "client/dist"))); // define the static folder
+app.length("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html")); // whatever the directory name is in the server, got to client folder -> dist folder -> then send index.html to the client
+});
 app.use(express.json()); // allow to send JSON input to backend
-app.use(cookieParser());
+app.use(cookieParser()); // parse the cookie to frontend
 // app.listen -> starts the server
 // 1st param -> listen to specific port (3000)
 // 2nd param -> callback function to run when the server starts succesfully

@@ -236,3 +236,13 @@ Currently, two official plugins are available:
     - then clear the cookie
     - add an onClick event listner to the signout button
     - create and export a signout reducer for sign out in the redux userSlice
+
+28. Complete Home and About page (opt)
+
+29. Deploy to render
+    -  put , 
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
+    in package.json
+    - import path from 'path'
+    - find the dynamic directory name
+    
