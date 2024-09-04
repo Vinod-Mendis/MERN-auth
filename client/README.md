@@ -23,6 +23,7 @@ Currently, two official plugins are available:
 
 6. create api folder for backend in the root :
 
+   - create index.js file in api folder
    - create express app
    - listen it to a port number
 
